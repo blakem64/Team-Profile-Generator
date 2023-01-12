@@ -15,6 +15,11 @@
   },
   {
     type: "input",
+    name: "managerid",
+    message: "What is the employees ID number?",
+  },
+  {
+    type: "input",
     name: "manageremail",
     message: "What is the manager's email?",
   },
@@ -24,55 +29,75 @@
     message: "What is the office number of the manager?"
   },
   {
-  type: "input",
-  name: "engineername",
-  message: "what is the engineer name?",
-  },
-  
-  {
-    type: "input",
-    name: "engineeremail",
-    message: "what is the engineersemail?",
-  },
-
-  {
-    type: "input",
-    name: "engineergithub",
-    message: "what is the engineer github?",
-  },
-
-  {
     type: "input",
     name: "internname",
-    message: "what is the engineer name?",
+    message: "what is the interns name?",
+  },
+  {
+    type: "input",
+    name: "internid",
+    message: "What is the employees ID number?",
   },
   {
     type: "input",
     name: "internemail",
-    message: "what is the intern email?",
+    message: "what is the interns email?",
   },
   {
     type: "input",
-    name: "internschool",
+    name: "school",
     message: "what is the interns school?",
   },
+  {
+    type: "input",
+    name: "engineername",
+    message: "what is the engineer name?",
+    },
+    {
+      type: "input",
+      name: "engineerid",
+      message: "What is the employees ID number?",
+    },
+    {
+      type: "input",
+      name: "engineeremail",
+      message: "what is the engineers email?",
+    },
+  
+    {
+      type: "input",
+      name: "github",
+      message: "what is the engineers github?",
+    },
+  
 
   ])
   
   .then((answers) => {
-    const manger = new Manager(
+    const manager = new Manager(
       answers.managername,
-      1,
+      answers.managerid,
       answers.manageremail,
       answers.officenum
     );
     const intern = new Intern(
       answers.internname,
-      3,
+      answers.internid,
       answers.internemail,
-      answers.intershool
+      answers.school,
     );
-    fs.writeFileSync("dist/output.html", template(manager));
+    const engineer = new Engineer(
+      answers.engineername,
+      answers.engineerid,
+      answers.engineeremail,
+      answers.github,
+
+    )
+    fs.writeFileSync("dist/output.html",
+    `<h1>Manager Name <h1>
+    <h3>${answers.managername}<h3>
+    `
+    );
   })
 
   .catch((error) => {
