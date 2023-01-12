@@ -1,8 +1,11 @@
-import inquirer from "inquirer";
-import fs from "fs";
-import { Manager} from "./lib/Manager.js";
+  import inquirer from "inquirer";
+  import fs from "fs";
+  import { Manager} from "./lib/Manager.js";
+  import { template } from "./src/template";
+  import { Intern } from "./lib/Intern.js";
+  import { Engineer} from "./lib/Engineer.js";
 
-inquirer.prompt([
+  inquirer.prompt([
 
   {
     type: "input",
@@ -12,30 +15,67 @@ inquirer.prompt([
   },
   {
     type: "input",
-    name: "username",
-    message: "What is your Github Username?",
+    name: "manageremail",
+    message: "What is the manager's email?",
   },
   {
     type: "input",
-    name: "email",
-    message: "What is your email?"
+    name: "officenum",
+    message: "What is the office number of the manager?"
+  },
+  {
+  type: "input",
+  name: "engineername",
+  message: "what is the engineer name?",
+  },
+  
+  {
+    type: "input",
+    name: "engineeremail",
+    message: "what is the engineersemail?",
   },
 
-])
+  {
+    type: "input",
+    name: "engineergithub",
+    message: "what is the engineer github?",
+  },
 
-.then ((answers) => {
-  fs.writeFileSync(
-    "dist/output.html",
-    `
-    <h1> My manager name </h1>
-    <h3> ${answers.managername} </h3>
-    
-    
-    
-    `
-  );
-});
+  {
+    type: "input",
+    name: "internname",
+    message: "what is the engineer name?",
+  },
+  {
+    type: "input",
+    name: "internemail",
+    message: "what is the intern email?",
+  },
+  {
+    type: "input",
+    name: "internschool",
+    message: "what is the interns school?",
+  },
 
-.catch((error) => {
-  console.log(error);
-});
+  ])
+  
+  .then((answers) => {
+    const manger = new Manager(
+      answers.managername,
+      1,
+      answers.manageremail,
+      answers.officenum
+    );
+    const intern = new Intern(
+      answers.internname,
+      3,
+      answers.internemail,
+      answers.intershool
+    );
+    fs.writeFileSync("dist/output.html", template(manager));
+  })
+
+  .catch((error) => {
+    console.log(error);
+ 
+  });
