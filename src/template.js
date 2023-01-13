@@ -15,7 +15,7 @@ main{
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
-
+  
 }
 .card-header{
   background:blue;
@@ -63,8 +63,8 @@ function internCard(intern) {
   <div class="card-body">
   <ul>
   <li>ID: ${intern.getId()}</li>
-  <li>Email :<a href="mailTo:$intern{.getEmail()}" >${intern.getEmail()}</a></li>
-  <li>School:${intern.getschool()}</li>
+  <li>Email :<a href="mailTo:${intern.getEmail()}" >${intern.getEmail()}</a></li>
+  <li>School:${intern.getSchool()}</li>
   </ul>
   </div>
 </div>
@@ -82,7 +82,7 @@ function engineerCard(engineer) {
     <ul>
     <li>ID: ${engineer.getId()}</li>
     <li>Email :<a href="mailTo:${engineer.getEmail()}" >${engineer.getEmail()}</a></li>
-    <li>Github:${engineer.getGithub()}</li>
+    <li>Github:<a href= "${engineer.getGithub()}"> ${engineer.getGithub()}</a></li>
     </ul>
     </div>
   </div>

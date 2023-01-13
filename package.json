@@ -2,8 +2,7 @@
   "name": "team-profile-generator",
   "version": "1.0.0",
   "description": "generate html template",
-  "main": "index.js",
-  "type": "module",
+  
   "scripts": {
     "test": "jest"
   },

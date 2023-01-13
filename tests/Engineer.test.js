@@ -1,5 +1,4 @@
-import { Engineer } from "../lib/Engineer";
-import { expect, test } from "@jest/globals";
+const Engineer = require("../lib/Engineer");
 const engineer = new Engineer("james", 1, "james@gmail.com", "jgithubprofile");
 
 test("Test#1 testing getName", () => {

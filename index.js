@@ -2,8 +2,8 @@
   const fs = require("fs");
   const  Manager = require ("./lib/Manager.js");
   const  template= require ("./src/template.js");
-  const Intern  = ("./lib/Intern.js");
-  const  Engineer = ("./lib/Engineer.js");
+  const Intern  = require ("./lib/Intern.js");
+  const  Engineer = require ("./lib/Engineer.js");
 
   inquirer.prompt([
 
@@ -93,7 +93,7 @@
       answers.github,
 
     )
-    fs.writeFileSync("dist/output.html", template(manager));
+    fs.writeFileSync("dist/output.html", template(manager, intern, engineer));
   })
 
   .catch((error) => {

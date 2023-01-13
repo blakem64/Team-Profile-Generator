@@ -1,5 +1,4 @@
-import { Intern } from "../lib/intern";
-import { expect, test } from "@jest/globals";
+const Intern = require("../lib/intern");
 const intern = new Intern("james", 1, "james@gmail.com", "UFD");
 
 test("Test#1 testing getName", () => {

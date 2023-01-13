@@ -1,5 +1,4 @@
-import { Employee } from "../lib/Employee.js"
-import { expect, test } from "@jest/globals";
+const Employee = require ("../lib/Employee.js")
 const employee = new Employee("james", 1, "james@gmail.com");
 
 test("Test#1 testing getName", () => {

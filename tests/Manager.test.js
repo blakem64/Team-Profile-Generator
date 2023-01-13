@@ -1,5 +1,4 @@
-import { Manager} from "../lib/Manager";
-import { expect, test } from "@jest/globals";
+const Manager = require("../lib/Manager");
 const manager = new Manager("james", 1, "james@gmail.com", 3);
 
 test("Test#1 testing getName", () => {
