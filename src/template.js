@@ -1,4 +1,4 @@
-export const template = (manager, intern, engineer) => {
+ const template = (manager, intern, engineer) => {
   return `<style>
 header{
   height:100px;
@@ -15,6 +15,7 @@ main{
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
+
 }
 .card-header{
   background:blue;
@@ -88,3 +89,4 @@ function engineerCard(engineer) {
   `;
 
 }
+module.exports = template;

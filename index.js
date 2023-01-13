@@ -1,9 +1,9 @@
-  import inquirer from "inquirer";
-  import fs from "fs";
-  import { Manager} from "./lib/Manager.js";
-  import { template } from "./src/template";
-  import { Intern } from "./lib/Intern.js";
-  import { Engineer} from "./lib/Engineer.js";
+  const inquirer = require("inquirer");
+  const fs = require("fs");
+  const  Manager = require ("./lib/Manager.js");
+  const  template= require ("./src/template.js");
+  const Intern  = ("./lib/Intern.js");
+  const  Engineer = ("./lib/Engineer.js");
 
   inquirer.prompt([
 
@@ -93,14 +93,9 @@
       answers.github,
 
     )
-    fs.writeFileSync("dist/output.html",
-    `<h1>Manager Name <h1>
-    <h3>${answers.managername}<h3>
-    `
-    );
+    fs.writeFileSync("dist/output.html", template(manager));
   })
 
   .catch((error) => {
     console.log(error);
- 
   });
